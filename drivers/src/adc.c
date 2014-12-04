@@ -38,7 +38,7 @@
 #include "pm.h"
 #include "nvicconf.h"
 #include "imu.h"
-
+#include "log.h"
 #ifdef ADC_OUTPUT_RAW_DATA
 #include "uart.h"
 #include "acc.h"
@@ -53,6 +53,7 @@
 
 #define CH_VREF               ADC_Channel_17
 #define CH_TEMP               ADC_Channel_16
+#define GPIO_PROX        GPIO_Pin_6
 
 static bool isInit;
 volatile AdcGroup adcValues[ADC_MEAN_SIZE * 2];

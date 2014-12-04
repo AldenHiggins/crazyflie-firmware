@@ -58,6 +58,9 @@
 
 #define ADC_INTERNAL_VREF   1.20
 
+// Added by us for reasons unknown
+#define PROX_CON         0.00546875 
+
 /******** Types ********/
 
 typedef struct __attribute__((packed))
@@ -69,6 +72,7 @@ typedef struct __attribute__((packed))
 typedef struct __attribute__((packed))
 {
   AdcPair vbat;
+  AdcPair vprox;
 } AdcGroup;
 
 typedef struct
@@ -86,6 +90,9 @@ typedef struct
 void adcInit(void);
 
 bool adcTest(void);
+
+// Update proximity sensor
+void proxSensorUpdate(AdcGroup* adcValues);
 
 /**
  * Converts a 12 bit ADC value to battery voltage

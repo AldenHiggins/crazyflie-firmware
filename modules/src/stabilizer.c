@@ -211,6 +211,7 @@ static void stabilizerTask(void* param)
         controllerCorrectAttitudePID(eulerRollActual, eulerPitchActual, eulerYawActual,
                                      eulerRollDesired, eulerPitchDesired, -eulerYawDesired,
                                      &rollRateDesired, &pitchRateDesired, &yawRateDesired);
+
         attitudeCounter = 0;
       }
 
@@ -282,7 +283,6 @@ static void stabilizerAltHoldUpdate(void)
   ms5611GetData(&pressure, &temperature, &aslRaw);
   asl = asl * aslAlpha + aslRaw * (1 - aslAlpha);
   aslLong = aslLong * aslAlphaLong + aslRaw * (1 - aslAlphaLong);
-
   // Estimate vertical speed based on successive barometer readings. This is ugly :)
   vSpeedASL = deadband(asl - aslLong, vSpeedASLDeadband);
 
