@@ -414,6 +414,11 @@ static float deadband(float value, const float threshold)
   return value;
 }
 
+LOG_GROUP_START(stabilizeDebug)
+LOG_ADD(LOG_FLOAT, aHoldPIDVal, &altHoldPIDVal)
+LOG_ADD(LOG_FLOAT, aHoldTarget, &altHoldTarget)
+LOG_GROUP_STOP(stabilizeDebug)
+
 LOG_GROUP_START(stabilizer)
 LOG_ADD(LOG_FLOAT, roll, &eulerRollActual)
 LOG_ADD(LOG_FLOAT, pitch, &eulerPitchActual)
